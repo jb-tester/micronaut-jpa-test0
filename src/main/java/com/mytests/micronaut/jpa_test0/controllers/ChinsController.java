@@ -18,4 +18,8 @@ public class ChinsController {
     public List<Chins> getAll(){
       return repo.findAll();
     }
+    @Get("/bysex/{sex}")
+    public List<Chins> sex(String sex){
+        return repo.findBySex(sex);
+    }
 }
