@@ -9,7 +9,7 @@ import io.micronaut.http.annotation.PathVariable;
 import javax.inject.Inject;
 import java.util.List;
 
-@Controller
+@Controller("/chins")
 public class ChinsController {
 
     @Inject

@@ -1,10 +1,10 @@
 ###
-GET http://localhost:8080/namesbycolor/{{color_pattern}}
+GET http://localhost:8080/chins/{{color_pattern}}
 
 ###
-GET http://localhost:8080/all
+GET http://localhost:8080/chins/all
 
 ###
-GET http://localhost:8080/bysex/{{sex}}
+GET http://localhost:8080/chins/bysex/{{sex}}
 
 ###
