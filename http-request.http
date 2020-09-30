@@ -1,4 +1,7 @@
 ###
+GET http://localhost:8080/namesbycolor/{{color_pattern}}
+
+###
 GET http://localhost:8080/all
 
 ###

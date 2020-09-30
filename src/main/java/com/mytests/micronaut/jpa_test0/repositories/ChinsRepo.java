@@ -11,4 +11,6 @@ public interface ChinsRepo extends CrudRepository<Chins, Integer> {
 
     List<Chins> findAll();
     List<Chins> findBySex(String sex);
+    
+    List<String> searchNameByColorContains(String color);
 }
