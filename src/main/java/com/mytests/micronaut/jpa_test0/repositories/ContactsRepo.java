@@ -1,6 +1,7 @@
 package com.mytests.micronaut.jpa_test0.repositories;
 
 import com.mytests.micronaut.jpa_test0.data.Contact;
+import io.micronaut.context.annotation.Executable;
 import io.micronaut.data.annotation.Repository;
 import io.micronaut.data.model.Pageable;
 import io.micronaut.data.repository.CrudRepository;
@@ -14,12 +15,12 @@ import java.util.List;
  * <p>Project: micronaut-jpa-test0</p>
  * *
  */
-@Repository("contacts")
+@Repository("contacts")   // no reference to datasource configuration in application.properties
 public interface ContactsRepo extends CrudRepository<Contact, Integer> {
     
-    List<Contact> findByFirstnameNotEquals(String firstname);
+    List<Contact> findByFirstnameNotEquals(String firstname); // 'Not' is shown as error
     
-    String retrieveLastnameByEmailContains(String email);
+    String retrieveLastnameByEmailContains(String email); // projection part of name is not validated though it is completed
     
     String getEmailByLastnameAndFirstnameIlike(String lastname, String firstname);
     
