@@ -18,6 +18,9 @@ GET http://localhost:8080/chins/{{color_pattern}}
 GET http://localhost:8080/chins/all
 
 ###
+GET http://localhost:8080/chins/ordered
+
+###
 GET http://localhost:8080/chins/bysex/{{sex}}
 
 ###
