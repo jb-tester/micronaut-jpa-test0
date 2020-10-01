@@ -1,4 +1,11 @@
 ###
+
+###
+GET http://localhost:8080/contacts/byname/{{name}}
+
+###
+GET http://localhost:8080/contacts/bymail/{{email}}
+###
 GET http://localhost:8080/chins/{{color_pattern}}
 
 ###
