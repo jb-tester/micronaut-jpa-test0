@@ -30,4 +30,15 @@ public class ContactsController {
         return repo.retrieveLastnameByEmailContains(email);
 
     }
+
+    @Get("/bynames/{lname}.{fname}")
+    public String mailbynames(String fname, String lname){
+        return repo.getEmailByLastnameAndFirstnameIlike(lname, fname);
+
+    }
+    @Get("/bynames2/{lname}.{fname}")
+    public Contact bynames(String fname, String lname){
+        return repo.find(fname, lname);
+
+    }
 }

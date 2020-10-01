@@ -21,4 +21,8 @@ public interface ContactsRepo extends CrudRepository<Contact, Integer> {
     
     String retrieveLastnameByEmailContains(String email);
     
+    String getEmailByLastnameAndFirstnameIlike(String lastname, String firstname);
+    
+    @Executable
+    Contact find(String firstname, String lastname);   // no support for parameters validation in the simple  query methods that don't use 'By' syntax
 }

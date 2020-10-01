@@ -1,4 +1,10 @@
 ###
+GET http://localhost:8080/contacts/bynames2/{{lname}}.{{fname}}
+
+###
+GET http://localhost:8080/contacts/bynames/{{lname}}.{{fname}}
+
+###
 
 ###
 GET http://localhost:8080/contacts/byname/{{name}}
