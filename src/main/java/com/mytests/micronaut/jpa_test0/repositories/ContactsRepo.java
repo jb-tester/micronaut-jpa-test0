@@ -15,15 +15,19 @@ import java.util.List;
  * <p>Project: micronaut-jpa-test0</p>
  * *
  */
+// https://youtrack.jetbrains.com/issue/IDEA-251994
 @Repository("contacts")   // no reference to datasource configuration in application.properties
 public interface ContactsRepo extends CrudRepository<Contact, Integer> {
     
+   // https://youtrack.jetbrains.com/issue/IDEA-251891
     List<Contact> findByFirstnameNotEquals(String firstname); // 'Not' is shown as error
     
+    // https://youtrack.jetbrains.com/issue/IDEA-251992
     String retrieveLastnameByEmailContains(String email); // projection part of name is not validated though it is completed
     
     String getEmailByLastnameAndFirstnameIlike(String lastname, String firstname);
     
+    // https://youtrack.jetbrains.com/issue/IDEA-251993
     @Executable
     Contact find(String firstname, String lastname);   // no support for parameters validation in the simple  query methods that don't use 'By' syntax
 }

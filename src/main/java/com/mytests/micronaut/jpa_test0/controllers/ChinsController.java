@@ -24,6 +24,10 @@ public class ChinsController {
     public List<Chins> getAllOrdered(){
         return repo.queryOrderByNameDesc();
     }
+    @Get("/ordered2")
+    public List<Chins> getAllOrdered2(){
+        return repo.findOrderByName();
+    }
 
     @Get("/bysex/{sex}")
     public List<Chins> sex(String sex){
