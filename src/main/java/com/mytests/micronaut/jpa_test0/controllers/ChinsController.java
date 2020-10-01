@@ -29,10 +29,12 @@ public class ChinsController {
     public List<Chins> sex(String sex){
         return repo.findBySex(sex);
     }
-    
     @Get(uri = "/namesbycolor/{color_pattern}")
     public List<String> colors(@PathVariable("color_pattern") String color_pattern){
         return  repo.searchNameByColorContains(color_pattern);
     }
-    
+    @Get("/listnames")
+    public List<String> byname(){
+        return repo.listName();
+    }
 }

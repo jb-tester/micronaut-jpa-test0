@@ -10,8 +10,11 @@ import java.util.List;
 public interface ChinsRepo extends CrudRepository<Chins, Integer> {
 
     List<Chins> findAll();
-    List<Chins> findBySex(String sex);
     
+    List<String> listName();   // 'list[projection][OrderBy]' format is not supported
+
+    List<Chins> findBySex(String sex);
+
     List<String> searchNameByColorContains(String color);
     
     List<Chins> queryOrderByNameDesc(); // related to the below case, 'Desc'/'Asc' is reported as error
