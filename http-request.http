@@ -1,4 +1,19 @@
 ###
+POST http://localhost:8080/samples/add/7/new_sample/cyan
+
+###
+GET http://localhost:8080/samples/bycolor/red
+
+###
+GET http://localhost:8080/samples/byversion/1
+
+###
+GET http://localhost:8080/samples/bysample/sample
+
+###
+GET http://localhost:8080/samples/colorbyversion/1
+
+###
 GET http://localhost:8080/contacts/bynames2/{{lname}}.{{fname}}
 
 ###
