@@ -46,6 +46,6 @@ public class SampleController {
 
     @Get("/colorbyversion/{vers}")
     public Page<String> getcolorbyversion(@PathVariable("vers") Integer vers) {
-       // return repo.findColorByVersion(vers, Pageable.from(0,3));
+       return repo.findColorByVersion(vers, Pageable.from(0,3));
     }
 }
