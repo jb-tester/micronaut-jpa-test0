@@ -20,12 +20,14 @@ public interface SampleRepository extends PageableRepository<Sample,Integer > {
 
     
     Page<Sample> getByColor(String color, Pageable pageable);
-    
+
+    // for the next 2 methods the pageable parameter is removed by intention if the required property-backing parameter is missing;
+    // the method of Slice<T> type should get the intention to add the pageable parameter if it is missing
     Slice<Sample> findByVersion(Integer version, Pageable pageable);
     
     List<Sample> findBySampleContains(String sample, Pageable pageable);
 
-    
+// if the return method is Page<Sample>, intention changes it to Integer, not to Page<Integer>    
     Page<String> findColorByVersion(Integer version, Pageable pageable);
     
     
