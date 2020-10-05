@@ -41,3 +41,6 @@ GET http://localhost:8080/chins/bysex/{{sex}}
 ###
 GET http://localhost:8080/chins/listnames
 ###
+GET http://localhost:8080/chins/dto_by_color/{{color_pattern}}
+
+###

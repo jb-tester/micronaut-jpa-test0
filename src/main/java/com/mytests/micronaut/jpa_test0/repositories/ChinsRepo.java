@@ -1,6 +1,7 @@
 package com.mytests.micronaut.jpa_test0.repositories;
 
 import com.mytests.micronaut.jpa_test0.data.Chins;
+import com.mytests.micronaut.jpa_test0.data.ChinsDTO;
 import io.micronaut.data.annotation.Repository;
 import io.micronaut.data.repository.CrudRepository;
 
@@ -10,6 +11,8 @@ import java.util.List;
 public interface ChinsRepo extends CrudRepository<Chins, Integer> {
 
     List<Chins> findAll();
+
+    List<ChinsDTO> findByColorContains(String color); // DTO projections: https://youtrack.jetbrains.com/issue/IDEA-252185
     
     // https://youtrack.jetbrains.com/issue/IDEA-251991
     List<String> listName();   // 'list[projection][OrderBy]' format is not supported

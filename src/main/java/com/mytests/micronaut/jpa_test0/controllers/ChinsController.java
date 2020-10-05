@@ -1,6 +1,7 @@
 package com.mytests.micronaut.jpa_test0.controllers;
 
 import com.mytests.micronaut.jpa_test0.data.Chins;
+import com.mytests.micronaut.jpa_test0.data.ChinsDTO;
 import com.mytests.micronaut.jpa_test0.repositories.ChinsRepo;
 import io.micronaut.http.annotation.Controller;
 import io.micronaut.http.annotation.Get;
@@ -40,5 +41,10 @@ public class ChinsController {
     @Get("/listnames")
     public List<String> byname(){
         return repo.listName();
+    }
+    
+    @Get("/dto_by_color/{color_pattern}")
+    public List<ChinsDTO> dtoByColor(@PathVariable("color_pattern") String color_pattern){
+        return repo.findByColorContains(color_pattern) ;
     }
 }
