@@ -1,4 +1,18 @@
 ###
+GET http://localhost:8080/samples/explicit/1
+
+<> 2020-10-27T173422.200.json
+<> 2020-10-27T173202.200.json
+<> 2020-10-27T172355.500.json
+
+###
+GET http://localhost:8080/samples/native/1
+
+<> 2020-10-27T173304.500.json
+<> 2020-10-27T173141.500.json
+<> 2020-10-27T172653.500.json
+
+###
 POST http://localhost:8080/samples/add/7/new_sample/cyan
 
 ###

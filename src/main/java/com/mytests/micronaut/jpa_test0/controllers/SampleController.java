@@ -48,4 +48,13 @@ public class SampleController {
     public Page<String> getcolorbyversion(@PathVariable("vers") Integer vers) {
        return repo.findColorByVersion(vers, Pageable.from(0,3));
     }
+    @Get("/explicit/{vers}")
+    public Page<Sample> explicitQuery(@PathVariable("vers") Integer vers) {
+        return repo.explicitQuery(vers, Pageable.from(0,3));
+    }
+    @Get("/native/{vers}")
+    public Page<Sample> nativeQuery(@PathVariable("vers") Integer vers) {
+        return repo.nativeQuery(vers, Pageable.from(0,3));
+    }
+    
 }
