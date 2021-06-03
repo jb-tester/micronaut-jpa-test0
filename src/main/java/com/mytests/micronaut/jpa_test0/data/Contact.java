@@ -1,9 +1,6 @@
 package com.mytests.micronaut.jpa_test0.data;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  * *
@@ -12,6 +9,7 @@ import javax.persistence.Id;
  * *
  */
 @Entity
+@Table(name = "contact", schema = "jbtests")
 public class Contact {
     private Integer id;
     private String firstname;

@@ -41,4 +41,9 @@ public class ContactsController {
         return repo.find(fname, lname);
 
     }
+
+    @Get("/native_query")
+    public List<Contact> native_query() {
+        return repo.nativeQuery();
+    }
 }

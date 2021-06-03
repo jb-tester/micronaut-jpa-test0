@@ -2,6 +2,7 @@ package com.mytests.micronaut.jpa_test0.repositories;
 
 import com.mytests.micronaut.jpa_test0.data.Contact;
 import io.micronaut.context.annotation.Executable;
+import io.micronaut.data.annotation.Query;
 import io.micronaut.data.annotation.Repository;
 import io.micronaut.data.model.Pageable;
 import io.micronaut.data.repository.CrudRepository;
@@ -30,4 +31,7 @@ public interface ContactsRepo extends CrudRepository<Contact, Integer> {
     // https://youtrack.jetbrains.com/issue/IDEA-251993
     @Executable
     Contact find(String firstname, String lastname);   // no support for parameters validation in the simple  query methods that don't use 'By' syntax
+ 
+ @Query(nativeQuery = true, value = "select * from contact s")
+ List<Contact> nativeQuery();
 }
