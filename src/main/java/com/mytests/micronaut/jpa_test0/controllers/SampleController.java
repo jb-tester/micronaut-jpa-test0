@@ -2,6 +2,7 @@ package com.mytests.micronaut.jpa_test0.controllers;
 
 import com.mytests.micronaut.jpa_test0.data.Sample;
 import com.mytests.micronaut.jpa_test0.repositories.SampleRepository;
+import io.micronaut.context.event.ApplicationEventPublisher;
 import io.micronaut.data.model.Page;
 import io.micronaut.data.model.Pageable;
 import io.micronaut.data.model.Slice;
@@ -9,8 +10,10 @@ import io.micronaut.http.annotation.Controller;
 import io.micronaut.http.annotation.Get;
 import io.micronaut.http.annotation.PathVariable;
 import io.micronaut.http.annotation.Post;
+import io.micronaut.transaction.annotation.TransactionalEventListener;
 
 import javax.inject.Inject;
+import javax.transaction.Transactional;
 import java.util.List;
 
 /**
@@ -23,10 +26,15 @@ import java.util.List;
 public class SampleController {
      @Inject
     SampleRepository repo;
-     
+    @Inject ApplicationEventPublisher eventPublisher;
+    
+    @Transactional
     @Post("/add/{v}/{s}/{c}")
     public void addSample(@PathVariable int v, @PathVariable String s, @PathVariable String c){
-       repo.save(new Sample(v,s, c)) ;
+        Sample sample = new Sample(v, s, c);
+        repo.save(sample) ;
+        NewSampleEvent sampleEvent = new NewSampleEvent(sample);
+        eventPublisher.publishEvent(sampleEvent);
     }
 
     @Get("/bycolor/{color}")
@@ -56,5 +64,9 @@ public class SampleController {
     public Page<Sample> nativeQuery(@PathVariable("vers") Integer vers) {
         return repo.nativeQuery(vers, Pageable.from(0,3));
     }
-    
+
+    @TransactionalEventListener
+    void onNewSampleEvent(NewSampleEvent event) {
+        System.out.println("new sample added: " + event.getSample().toString());
+    }
 }
