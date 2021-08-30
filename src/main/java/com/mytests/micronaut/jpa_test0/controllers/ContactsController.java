@@ -46,4 +46,14 @@ public class ContactsController {
     public List<Contact> native_query() {
         return repo.nativeQuery();
     }
+
+    @Get("/lastContact")
+    public String getLastContact(){
+        return "last contact id = "+repo.findFirstOrderByIdDesc().getId();
+    }
+
+    @Get("/allOrdered")
+    public List<Contact> getAllOrdered(){
+        return repo.findOrderByEmailDesc();
+    }
 }
