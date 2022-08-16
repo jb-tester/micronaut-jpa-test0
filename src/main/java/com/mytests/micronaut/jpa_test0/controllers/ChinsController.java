@@ -29,7 +29,10 @@ public class ChinsController {
     public List<Chins> getAllOrdered2(){
         return repo.findOrderByName();
     }
-
+    @Get("/ordered3")
+    public List<Chins> getAllOrdered3(){
+        return repo.findBySexOrderByNameAndColor("male");
+    }
     @Get("/bysex/{sex}")
     public List<Chins> sex(String sex){
         return repo.findBySex(sex);

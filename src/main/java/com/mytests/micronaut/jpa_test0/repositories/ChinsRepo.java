@@ -25,4 +25,6 @@ public interface ChinsRepo extends CrudRepository<Chins, Integer> {
     List<Chins> queryOrderByNameDesc(); // related to the below case, 'Desc'/'Asc' is reported as error
     
     List<Chins> findOrderByName(); // '<find, query, get...>OrderBy' format is not supported: completion doesn't work, parameter is required by inspection though it is not required here
+    
+    List<Chins> findBySexOrderByNameAndColor(String sex); // multiple orderBy clause
 }
