@@ -5,7 +5,7 @@ import com.mytests.micronaut.jpa_test0.repositories.ContactsRepo;
 import io.micronaut.http.annotation.Controller;
 import io.micronaut.http.annotation.Get;
 
-import javax.inject.Inject;
+import jakarta.inject.Inject;
 import java.util.List;
 
 /**

@@ -10,7 +10,7 @@ GET http://localhost:8080/samples/explicit/1
 GET http://localhost:8080/samples/native/1
 
 ###
-POST http://localhost:8080/samples/add/9/mysample/white
+POST http://localhost:8080/samples/add/19/mysample/pink
 
 ###
 GET http://localhost:8080/samples/bycolor/red
