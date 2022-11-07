@@ -8,9 +8,9 @@ import com.mytests.micronaut.jpa_test0.data.Sample;
  * <p>Project: micronaut-jpa-test0</p>
  * *
  */
-public class NewSampleEvent {
+public class AddSampleEvent {
     Sample sample;
-    public NewSampleEvent(Sample sample) {
+    public AddSampleEvent(Sample sample) {
         this.sample = sample;
     }
 

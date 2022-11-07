@@ -12,7 +12,8 @@ import io.micronaut.http.annotation.PathVariable;
 import io.micronaut.http.annotation.Post;
 import io.micronaut.transaction.annotation.TransactionalEventListener;
 
-import javax.inject.Inject;
+import jakarta.inject.Inject;
+
 import javax.transaction.Transactional;
 import java.util.List;
 
@@ -24,8 +25,9 @@ import java.util.List;
  */
 @Controller("/samples")
 public class SampleController {
-     @Inject
+    @Inject
     SampleRepository repo;
+
     @Inject ApplicationEventPublisher eventPublisher;
     
     @Transactional
@@ -33,12 +35,15 @@ public class SampleController {
     public void addSample(@PathVariable int v, @PathVariable String s, @PathVariable String c){
         Sample sample = new Sample(v, s, c);
         repo.save(sample) ;
-        NewSampleEvent sampleEvent = new NewSampleEvent(sample);
+        AddSampleEvent sampleEvent = new AddSampleEvent(sample);
         eventPublisher.publishEvent(sampleEvent);
+        eventPublisher.publishEvent(new DummyEvent(eventPublisher.getClass().toString()));
     }
 
     @Get("/bycolor/{color}")
     public Page<Sample> getByColor(@PathVariable("color") String color) {
+
+
         return repo.getByColor(color, Pageable.from(0,3));
     }
 
@@ -66,7 +71,11 @@ public class SampleController {
     }
 
     @TransactionalEventListener
-    void onNewSampleEvent(NewSampleEvent event) {
+    void onNewSampleEvent(AddSampleEvent event) {
         System.out.println("new sample added: " + event.getSample().toString());
+    }
+    @TransactionalEventListener
+    void onDummyEvent(DummyEvent event) {
+        System.out.println("*******" + event.getMessage()+"********");
     }
 }
