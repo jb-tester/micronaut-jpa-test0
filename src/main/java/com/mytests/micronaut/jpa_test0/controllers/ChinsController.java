@@ -33,7 +33,10 @@ public class ChinsController {
     public List<Chins> getAllOrdered3(){
         return repo.findAllOrderBySexAndName();
     }
-
+    @Get("/ordered4")
+    public List<Chins> getAllOrdered4(){
+        return repo.findBySexOrderByNameAndColor("male");
+    }
     @Get("/bysex/{sex}")
     public List<Chins> sex(String sex){
         return repo.findBySex(sex);
