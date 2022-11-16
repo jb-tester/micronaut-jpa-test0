@@ -45,6 +45,10 @@ GET http://localhost:8080/chins/all
 
 ###
 GET http://localhost:8080/chins/ordered
+###
+GET http://localhost:8080/chins/ordered2
+###
+GET http://localhost:8080/chins/ordered3
 
 ###
 GET http://localhost:8080/chins/bysex/{{sex}}
